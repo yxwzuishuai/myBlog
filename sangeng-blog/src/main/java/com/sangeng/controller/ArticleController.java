@@ -49,5 +49,11 @@ public class ArticleController {
 
     }
 
+    @PutMapping("/updateViewCount/{id}")
+    public Result updateViewCount(@PathVariable ("id") Long id){
+        //更新浏览次数
+        return articleService.updateViewCount(id);
+    }
+
 }
 
