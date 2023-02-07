@@ -8,10 +8,12 @@ import java.io.Serializable;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import org.apache.poi.hssf.record.FtCblsSubRecord;
+
 
 /**
  * <p>
@@ -22,6 +24,8 @@ import org.apache.poi.hssf.record.FtCblsSubRecord;
  * @since 2022-02-07
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @TableName("sg_article")
 @ApiModel(value = "Article对象", description = "文章表")
@@ -85,4 +89,9 @@ public class Article implements Serializable {
     private Integer delFlag;
 
 
+
+    public Article(Long id, long viewCount) {
+        this.id = id;
+        this.viewCount = viewCount;
+    }
 }

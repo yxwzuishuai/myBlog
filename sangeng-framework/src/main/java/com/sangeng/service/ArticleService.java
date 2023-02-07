@@ -29,4 +29,7 @@ public interface ArticleService extends IService<Article> {
 
     ////查看文章详细信息
     Result getArticleDetail(Long id);
+
+    //更新浏览次数
+    Result updateViewCount(Long id);
 }

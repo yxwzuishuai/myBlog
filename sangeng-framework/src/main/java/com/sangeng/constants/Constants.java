@@ -38,4 +38,8 @@ public class Constants {
      * 评论类型为：友联评论
      */
     public static final String LINK_COMMENT = "1";
+    /**
+     * 每次访问文章是，文章阅读量加1
+     */
+    public static final Integer VIEW_COUNT = 1;
 }

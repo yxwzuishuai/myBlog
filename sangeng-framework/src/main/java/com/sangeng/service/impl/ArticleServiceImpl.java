@@ -14,12 +14,15 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sangeng.service.CategoryService;
 import com.sangeng.util.BeanCopyUtils;
 import com.sangeng.constants.Constants;
+import com.sangeng.util.RedisCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+
+import static com.sangeng.constants.Constants.VIEW_COUNT;
 
 /**
  * <p>
@@ -36,6 +39,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private RedisCache redisCache;
     /**
      * 门户网站 - 查询最热门文章
      *
@@ -96,6 +101,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
         Article article = baseMapper.selectById(id);
 
+        //从redis中获取viewCount
+        Integer articleViewCount = redisCache.getCacheMapValue("ArticleViewCount", id.toString());
+        article.setViewCount(articleViewCount.longValue());
         ArticleDetailVo articleDetailVo = BeanCopyUtils.copyBean(article, ArticleDetailVo.class);
 
         Long categoryId = articleDetailVo.getCategoryId();
@@ -103,5 +111,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         articleDetailVo.setCategoryName(categoryService.getById(categoryId).getName());
 
         return Result.okResult(articleDetailVo);
+    }
+
+    @Override
+    public Result updateViewCount(Long id) {
+        redisCache.incrementCacheMapValue("ArticleViewCount", id.toString(), VIEW_COUNT);
+        return Result.okResult();
     }
 }
