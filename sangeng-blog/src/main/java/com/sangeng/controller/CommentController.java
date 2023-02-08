@@ -5,11 +5,14 @@ import com.sangeng.constants.Constants;
 import com.sangeng.entity.Comment;
 import com.sangeng.result.Result;
 import com.sangeng.service.CommentService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/comment")
+@Api(tags = "评论")
 public class CommentController {
 
     @Autowired
@@ -28,6 +31,7 @@ public class CommentController {
 
     //友联评论列表
     @GetMapping("/linkCommentList")
+    @ApiOperation(value = "友链评论列表")
     public Result linkCommentList(Integer pageNum, Integer pageSize){
         return commentService.commentList(Constants.LINK_COMMENT,null,pageNum,pageSize);
     }
