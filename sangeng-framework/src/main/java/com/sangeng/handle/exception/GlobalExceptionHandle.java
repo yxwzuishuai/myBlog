@@ -1,6 +1,6 @@
 package com.sangeng.handle.exception;
 
-import com.sangeng.Exception.SystemException;
+import com.sangeng.exception.SystemException;
 import com.sangeng.result.Result;
 import com.sangeng.result.ResultEnum;
 import lombok.extern.slf4j.Slf4j;

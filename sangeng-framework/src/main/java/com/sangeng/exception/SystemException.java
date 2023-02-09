@@ -1,4 +1,4 @@
-package com.sangeng.Exception;
+package com.sangeng.exception;
 
 import com.sangeng.result.ResultEnum;
 

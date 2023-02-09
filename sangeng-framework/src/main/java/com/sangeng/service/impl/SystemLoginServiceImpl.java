@@ -45,4 +45,9 @@ public class SystemLoginServiceImpl implements LoginService {
         map.put("token",jwt);
         return Result.okResult(map);
     }
+
+    @Override
+    public Result logout() {
+        return null;
+    }
 }

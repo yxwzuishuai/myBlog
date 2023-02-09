@@ -6,4 +6,6 @@ import com.sangeng.result.Result;
 public interface LoginService {
 
     Result login(User user);
+
+    Result logout();
 }

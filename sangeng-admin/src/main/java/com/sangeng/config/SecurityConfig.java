@@ -43,15 +43,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
+                .antMatchers("/user/login").anonymous()
+                //删除标签需要进行认证
+                .antMatchers("/content/tag/{id}").authenticated()
               /*  // 对于登录接口 允许匿名访问
-                .antMatchers("/login").anonymous()
+
                 //对于退出接口，需要进行认证
                 .antMatchers("/logout").authenticated()
                 //个人信息必须登录后才能访问
                 .antMatchers("/user/userInfo").authenticated()
                // .antMatchers("/upload").authenticated()*/
-                // 除上面外的所有请求全部不需要认证即可访问
-                .anyRequest().permitAll();
+                // 除上面外的所有请求全部需要认证即可访问
+                .anyRequest().authenticated();
 
         //配置异常处理器
         http.exceptionHandling()

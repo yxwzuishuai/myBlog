@@ -42,4 +42,12 @@ public class Constants {
      * 每次访问文章是，文章阅读量加1
      */
     public static final Integer VIEW_COUNT = 1;
+    /**
+     * 评论类型为：友联评论
+     */
+    public static final String MENU = "C";
+    /**
+     * 每次访问文章是，文章阅读量加1
+     */
+    public static final String BUTTON = "F";
 }

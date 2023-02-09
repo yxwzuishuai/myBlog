@@ -2,7 +2,7 @@ package com.sangeng.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.sangeng.Exception.SystemException;
+import com.sangeng.exception.SystemException;
 import com.sangeng.entity.User;
 import com.sangeng.mapper.UserMapper;
 import com.sangeng.result.Result;

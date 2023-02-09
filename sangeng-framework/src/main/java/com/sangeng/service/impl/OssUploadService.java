@@ -8,7 +8,7 @@ import com.qiniu.storage.Region;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
-import com.sangeng.Exception.SystemException;
+import com.sangeng.exception.SystemException;
 import com.sangeng.result.Result;
 import com.sangeng.result.ResultEnum;
 import com.sangeng.service.UploadService;

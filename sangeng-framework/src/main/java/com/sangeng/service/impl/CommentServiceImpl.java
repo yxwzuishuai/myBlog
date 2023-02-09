@@ -3,7 +3,7 @@ package com.sangeng.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.sangeng.Exception.SystemException;
+import com.sangeng.exception.SystemException;
 import com.sangeng.constants.Constants;
 import com.sangeng.entity.Comment;
 
